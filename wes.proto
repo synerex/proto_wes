@@ -79,6 +79,7 @@ message amrState{
     Position targetPos = 7; 
     Position pos =8; //current pos
     string target = 9; //target pos name
+    float moveDistance = 10; //moving distance
 }
 
 //from wes
