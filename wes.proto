@@ -66,7 +66,6 @@ message humanState {
     Position pos = 11;  //current pos
     repeated string restItem = 12; //回収されていない商品の棚ID一覧
     repeated string pickedItem = 13; //回収された商品の棚ID一覧
-    float moveDistance = 14; //moving distance
 }
 
 //from wes
@@ -135,6 +134,7 @@ message wesHumanState{
     int64 elapsedTime = 12; //elapsedTime
     string lastItem = 13; //next picking item name
     string nextItem = 14; //next picking item
+    float moveDistance = 15; //moving distance
 }
 
 message hsimCartState{
