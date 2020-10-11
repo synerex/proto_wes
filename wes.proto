@@ -135,6 +135,7 @@ message wesHumanState{
     string lastItem = 13; //next picking item name
     string nextItem = 14; //next picking item
     float moveDistance = 15; //moving distance
+    string message = 16; //from wes message to human
 }
 
 message hsimCartState{
