@@ -8,12 +8,13 @@ option go_package="github.com/synerex/proto_wes";
 
 //from wes-provider 
 message wesMessage { 
-    string topic=1;
+    string topic=1; //topic
     int64 wmsID = 2;
     int64 humanID = 3;
     int64 amrID = 4;
     int64 wmsStart = 5; //unixtime
     Position pos = 6; //待っている場所
+    bytes message = 7; //message
 }
 
 //二次元座標
@@ -80,6 +81,8 @@ message amrState{
     Position pos =8; //current pos
     string target = 9; //target pos name
     float moveDistance = 10; //moving distance
+    repeated int64 finishWms= 11; //finish wmsID list
+    int64 humanID =12; //assign humanID
 }
 
 //from wes
