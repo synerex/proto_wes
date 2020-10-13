@@ -140,6 +140,7 @@ message wesHumanState{
     float moveDistance = 15; //moving distance
     string message = 16; //from wes message to human
     repeated int64 finishWms = 17; //finishWmsList
+    int64 assignAmr = 18; //割り振られたamrのID
 }
 
 message hsimCartState{
