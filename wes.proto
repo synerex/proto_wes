@@ -117,6 +117,11 @@ message pickInfo { //picking info
     int64 wmsID = 3; 
 }
 
+message giveinfo {
+    int64 humanID = 1;
+    int64 amrID = 2;
+}
+
 // hsim status, from hsim
 message hsimState{
     string simType = 1; //simlation type
