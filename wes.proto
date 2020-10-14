@@ -141,6 +141,7 @@ message wesHumanState{
     string message = 16; //from wes message to human
     repeated int64 finishWms = 17; //finishWmsList
     int64 assignAmr = 18; //割り振られたamrのID
+    Position targetPos = 19; //目的地の座標
 }
 
 message hsimCartState{
