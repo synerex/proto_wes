@@ -109,6 +109,7 @@ message wesHumanState{
     int64 assignAmr = 18; //割り振られたamrのID
     Position targetPos = 19; //目的地の座標
     repeated wmsOrder allWms = 20; 
+    string amrMessage =21; //割り当てられたamrの情報
 }
 
 message pickInfo { //picking info
