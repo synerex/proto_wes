@@ -27,13 +27,18 @@ message Position {
 message Item{ 
     int64 itemID = 1;
     string shelfID = 2;
-    int64 datetime = 3; //unix
+    bool isPicked = 3;
+    int64 pickTime = 4; //unix
+    int64 index = 5;
+    Position location = 6;
 }
 
 message wmsOrder{
     int64 wmsID=1;
     int64 humanID=2;
     repeated Item item = 3; 
+    int64 getTime = 4;
+    bool giveItem = 5;
 }
 
 //simlation type
