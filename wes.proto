@@ -41,34 +41,6 @@ message simType{
     string simType =1; //synchronous or asynchronous or onlyHuman
 }
 
-//from hsim
-message hsimMessage{ 
-    string topic=1;
-    int64 wmsID = 2;
-    int64 humanID = 3;
-    int64 amrID = 4;
-    int64 wmsStart = 5; //unix
-    Position putPos = 6; //position of cart
-    int64 putTime =7; //unixtime at cart put
-}
-
-//from hsim
-message humanState { 
-    int64 id=1; //human id
-    int64 wmsBatNum = 2; //current wms batID
-    int64 startTime = 3; //unix
-    int64 currentTime=4;//unix
-    int64 elapsedTime = 5;//[sec]
-    string state = 6; //status
-    repeated int64 restWms=7;
-    Position targetPos =8; 
-    int64 pickedNum = 9;    //ピッキングされた商品の数
-    int64 wmsItemNum = 10;  //1batの商品の数
-    Position pos = 11;  //current pos
-    repeated string restItem = 12; //回収されていない商品の棚ID一覧
-    repeated string pickedItem = 13; //回収された商品の棚ID一覧
-}
-
 //from wes
 message amrState{
     int64 id=1; //amrID
@@ -110,17 +82,6 @@ message wesCartState{
     float moveDistance = 9; //moving distance
 }
 
-// hsim status, from hsim
-message hsimState{
-    string simType = 1; //simlation type
-    repeated int64 workingWms = 2;
-    repeated int64 finishWms = 3;
-    int64 wmsGetTime = 4;
-    int64 currentTime = 5;
-    int64 elapsedTime = 6; //[sec]
-    repeated int64 idList = 7; //human id list
-}
-
 // wesHumanState from wes , wes's monitering human state
 message wesHumanState{
     int64 id = 1;
@@ -144,6 +105,23 @@ message wesHumanState{
     Position targetPos = 19; //目的地の座標
 }
 
+message pickInfo { //picking info
+    int64 humanID = 1;
+    string shelfID = 2;
+    int64 wmsID = 3; 
+}
+
+// hsim status, from hsim
+message hsimState{
+    string simType = 1; //simlation type
+    repeated int64 workingWms = 2;
+    repeated int64 finishWms = 3;
+    int64 wmsGetTime = 4;
+    int64 currentTime = 5;
+    int64 elapsedTime = 6; //[sec]
+    repeated int64 idList = 7; //human id list
+}
+
 message hsimCartState{
     int64 id=1; //ID
     string state = 2;//state of cart
@@ -152,4 +130,33 @@ message hsimCartState{
     repeated string items =5;//items in cart
     int64 lastUpdateUnix = 6;//latest update time
     int64 putUnix = 7; //human put time(unix)
+}
+
+
+//from hsim
+message hsimMessage{ 
+    string topic=1;
+    int64 wmsID = 2;
+    int64 humanID = 3;
+    int64 amrID = 4;
+    int64 wmsStart = 5; //unix
+    Position putPos = 6; //position of cart
+    int64 putTime =7; //unixtime at cart put
+}
+
+//from hsim
+message humanState { 
+    int64 id=1; //human id
+    int64 wmsBatNum = 2; //current wms batID
+    int64 startTime = 3; //unix
+    int64 currentTime=4;//unix
+    int64 elapsedTime = 5;//[sec]
+    string state = 6; //status
+    repeated int64 restWms=7;
+    Position targetPos =8; 
+    int64 pickedNum = 9;    //ピッキングされた商品の数
+    int64 wmsItemNum = 10;  //1batの商品の数
+    Position pos = 11;  //current pos
+    repeated string restItem = 12; //回収されていない商品の棚ID一覧
+    repeated string pickedItem = 13; //回収された商品の棚ID一覧
 }
