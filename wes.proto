@@ -121,6 +121,7 @@ message pickInfo { //picking info
 message giveinfo {
     int64 humanID = 1;
     int64 amrID = 2;
+    int64 wmsID = 3;
 }
 
 // hsim status, from hsim
