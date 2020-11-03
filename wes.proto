@@ -39,6 +39,7 @@ message wmsOrder{
     repeated Item item = 3; 
     int64 getTime = 4;
     bool giveItem = 5;
+    int64 humanAssingTime=6;
 }
 
 //simlation type
