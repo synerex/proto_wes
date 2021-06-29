@@ -4,6 +4,7 @@ package proto.wes;
 
 option go_package="github.com/synerex/proto_wes";
 
+import "google/protobuf/timestamp.proto";
 // This is a warehouse protocol for synerex.
 
 //from wes-provider 
@@ -23,7 +24,7 @@ message Position {
     float y=2;
 }
 
-//wmsの一つの商品
+//一つの商品
 message Item{ 
     int64 itemID = 1;
     string shelfID = 2;
@@ -31,8 +32,10 @@ message Item{
     int64 pickTime = 4; //unix
     int64 index = 5;
     Position location = 6;
+    string itemName = 7;
 }
 
+//一つの注文
 message wmsOrder{
     int64 wmsID=1;
     int64 humanID=2;
